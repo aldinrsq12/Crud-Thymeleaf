@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	
+	
+	<title>Mahasiswa web App</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Table Mahasiswa</h3>
+	<hr>
+	
+	<!-- Button -->
+	<a th:href="@{/mahasiswa/showFormForAdd}" class="btn btn-primary btn-sm mb-3">
+		Add mahasiswa
+	</a>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Fakultas</th>
+				<th>Jurusan</th>
+				<th>Mata kuliah</th>
+				<th>Nama</th>
+				<th>NIM</th>
+				<th>Action</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempMahasiswa : ${mahasiswa}">
+				<td th:text = "${tempMahasiswa.id}"/>
+				<td th:text = "${tempMahasiswa.fakultas}"/>
+				<td th:text = "${tempMahasiswa.jurusan}"/>
+				<td th:text = "${tempMahasiswa.matkul}"/>
+				<td th:text = "${tempMahasiswa.name}"/>
+				<td th:text = "${tempMahasiswa.nim}"/>
+				<td>   <a th:href="@{/mahasiswa/showFormForUpdate(id=${tempMahasiswa.id})}" class="btn btn-primary btn-sm mb-3">Update</a>
+				 <a th:href="@{/mahasiswa/delete(id=${tempMahasiswa.id})}" class="btn btn-danger btn-sm mb-3" onclick="if(!(confirm('Are you sure you want to delete this mahasiswa?'))) return false">Delete</a></td>
+				
+		</tbody>
+	
+	</table>
+
+</div>
+</body>
+</html>

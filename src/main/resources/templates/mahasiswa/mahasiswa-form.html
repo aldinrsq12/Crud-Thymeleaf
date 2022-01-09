@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	
+	
+	<title>Mahasiswa</title>
+</head>
+<body>
+	
+	<div class="container">
+		
+		<h3>Mahasiswa Crud</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Mahasiswa</p>
+
+		<form action="#" th:action="@{/mahasiswa/save}" th:object="${mahasiswa}" method="POST">
+		
+			<input type="hidden" th:field="*{id}"/>
+			
+			<input type="text" th:field="*{fakultas}" class="form-control mb-4 col-4" placeholder="Fakultas">
+			<input type="text" th:field="*{jurusan}" class="form-control mb-4 col-4" placeholder="Jurusan">
+			<input type="text" th:field="*{matkul}" class="form-control mb-4 col-4" placeholder="Mata kuliah">
+			<input type="text" th:field="*{name}" class="form-control mb-4 col-4" placeholder="Nama">
+			<input type="text" th:field="*{nim}" class="form-control mb-4 col-4" placeholder="NIM">
+			
+						
+
+			<button type="submit" class="btn btn-info col-2">Save</button>
+		
+		</form>
+		
+		<hr>
+		<a th:href="@{/mahasiswa/list}">Back to Mahasiswa List</a>
+
+	</div>
+
+</body>
+</html>
